@@ -1,0 +1,8 @@
+steps:
+- name: 'ubuntu'
+  args: ['bash', '-c', 'echo "available storage";df -h;echo "available inodes"; df -i; echo "workspace size"; du -sh; echo "workspace size by file"; du -sh *']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['run', 'ubuntu', 'bash', '-c', 'df -h; df -i']
+options:
+  diskSizeGb: 100
+
